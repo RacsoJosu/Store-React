@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const ShoppingCartContext = createContext()
 
@@ -21,6 +21,27 @@ export const ShoppingCartProvider = ({children})=>{
     // shopping cart - agregar producto al carrito de compras
     const [cartProducts, setCartProducts] = useState([])
 
+    // ordenes 
+    const [order, setOrder] = useState([]);
+
+    // productos 
+    const [items, setItems] = useState(null);
+    // buscador 
+    
+    
+    useEffect(()=>{
+    
+
+
+        const getData = async ()=>{
+          const response = await fetch('https://api.escuelajs.co/api/v1/products')
+          const data = await response.json()
+          setItems(data)
+        
+        }
+        getData();
+      }, [])
+
     return (
         <ShoppingCartContext.Provider value={ {
             count, 
@@ -35,7 +56,11 @@ export const ShoppingCartProvider = ({children})=>{
             isCheckoutSideMenuOpen, 
             setIsCheckouSideMenuOpen,
             openCheckouSideMenu,
-            closeCheckouSideMenu
+            closeCheckouSideMenu,
+            order,
+            setOrder,
+            items,
+            setItems
 
          } }>
             {children}

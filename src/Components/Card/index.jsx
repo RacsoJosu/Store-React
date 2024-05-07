@@ -1,4 +1,4 @@
-import { PlusCircleIcon  } from '@heroicons/react/24/solid'
+import { PlusCircleIcon, CheckCircleIcon  } from '@heroicons/react/24/solid'
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context"
 
@@ -23,13 +23,41 @@ const Card = ({title, customKey,category, price, img, description})=>{
     // funcion para retener la informacion de los productos
 
     const addProductsToCart= (event,dataProduct)=>{
-        console.log(event)
         event.stopPropagation()
         context.openCheckouSideMenu()
         context.closeProductDetail()
-        context.setCartProducts([...context.cartProducts, dataProduct])
-        context.setCount(context.count + 1);
-        console.log({cart:context.cartProducts})
+        
+        const product = context.cartProducts.filter((product)=>product.customKey === dataProduct.customKey);
+    
+        if (product.length === 0) {
+            context.setCartProducts([...context.cartProducts, dataProduct])
+            context.setCount(context.count + 1);
+        }
+    
+    }
+
+    const renderIcon= () => {
+        const including = context.cartProducts.filter((product)=> product.customKey === customKey);
+        if (including.length === 0) {
+            return <div className=" absolute top-0 right-0 flex justify-center items-center bg-white m-2 rounded-full p-1" onClick={(event)=>addProductsToCart(event, {title, customKey, price, img,categoryName, description})}> 
+                    
+            <PlusCircleIcon className="h-6 w-6 text-green-500"></PlusCircleIcon>
+
+            </div>
+            
+        }else{
+            return <div className=" absolute top-0 right-0 flex justify-center items-center bg-white m-2 rounded-full p-1" onClick={(event)=>addProductsToCart(event, {title, customKey, price, img,categoryName, description})}> 
+                    
+                    <CheckCircleIcon className="h-6 w-6 text-blue-500"></CheckCircleIcon>
+
+        </div>
+
+        }
+   
+
+
+
+       
     }
     return (
         <div 
@@ -40,11 +68,7 @@ const Card = ({title, customKey,category, price, img, description})=>{
                 <span className=" absolute bottom-0 left-0 bg-white/60 rounded-lg text-xs m-2 px-3 py-0.5">{categoryName}</span>
                 <img  className='w-full rounded-lg h-full object-cover'src={img} alt={title} />
                 
-                <div className=" absolute top-0 right-0 flex justify-center items-center bg-white m-2 rounded-full p-1" onClick={(event)=>addProductsToCart(event, {title, customKey, price, img,categoryName, description})}> 
-                    
-                    <PlusCircleIcon className="h-6 w-6 text-green-500"></PlusCircleIcon>
-
-                </div>
+                {renderIcon()}
             </figure>
             <p className='flex justify-between'>
                 <span className='text-sm font-light'>{title}</span>

@@ -1,28 +1,25 @@
 import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
-import { useState } from "react";
-import { useEffect } from "react";
+
 import ProductDetails from "../../Components/ProductDetails";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context";
+import Search from "../../Components/Search";
 
 function Home() {
-  const [items, setItems] = useState(null);
+  const context = useContext(ShoppingCartContext);
+  const items = context.items;
+ 
 
-  useEffect(()=>{
-    
-
-
-    const getData = async ()=>{
-      const response = await fetch('https://api.escuelajs.co/api/v1/products')
-      const data = await response.json()
-      setItems(data)
-      return data
-    }
-    getData();
-  }, [])
+  
 
 
   return (
     <Layout>
+      <div className="my-10">
+        <Search/>
+
+      </div>
       <section className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-10">
         {items?.map((item)=>(
           // eslint-disable-next-line react/jsx-key
