@@ -20,7 +20,7 @@ function Category() {
   return (
     <Layout>
       <div className="my-10">
-        <h1 className="text-center font-bold text-2xl mb-4">Exclusive Products</h1>
+        <h1 className="text-center font-bold text-2xl mb-4">{params.category} products</h1>
 
       </div>
       {items.length > 0 ? <section className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-10">
