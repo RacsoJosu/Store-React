@@ -25,8 +25,11 @@ export const ShoppingCartProvider = ({children})=>{
     const [order, setOrder] = useState([]);
 
     // productos 
-    const [items, setItems] = useState(null);
+    const [items, setItems] = useState([]);
+    const [searchItems, setSearchItems] = useState([]);
     // buscador 
+    const [searchValue, setSearchValue ] = useState("")
+    const [isSearch, setIsSearch ] = useState(false)
     
     
     useEffect(()=>{
@@ -36,11 +39,27 @@ export const ShoppingCartProvider = ({children})=>{
         const getData = async ()=>{
           const response = await fetch('https://api.escuelajs.co/api/v1/products')
           const data = await response.json()
+         
           setItems(data)
+          return data;
         
         }
+
         getData();
+
+        
       }, [])
+
+      const onSearch = ()=>{
+        const searchedData = items.filter((item)=> item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()) || item.category.name.toLowerCase().includes(searchValue.toLocaleLowerCase())   )
+        setSearchItems([...searchedData])
+        setIsSearch(true)
+    
+      }
+
+    
+
+    
 
     return (
         <ShoppingCartContext.Provider value={ {
@@ -60,7 +79,15 @@ export const ShoppingCartProvider = ({children})=>{
             order,
             setOrder,
             items,
-            setItems
+            setItems,
+            searchItems,
+            setSearchItems,
+            searchValue,
+            setSearchValue,
+            onSearch,
+            isSearch,
+            setIsSearch
+
 
          } }>
             {children}
