@@ -51,11 +51,14 @@ export const ShoppingCartProvider = ({children})=>{
       }, [])
 
       const onSearch = ()=>{
-        const searchedData = items.filter((item)=> item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()) || item.category.name.toLowerCase().includes(searchValue.toLocaleLowerCase())   )
+        const searchedData = items.filter((item)=> item.title.toLowerCase().includes(searchValue.toLocaleLowerCase())   )
         setSearchItems([...searchedData])
         setIsSearch(true)
     
       }
+
+   
+      
 
     
 
@@ -86,7 +89,7 @@ export const ShoppingCartProvider = ({children})=>{
             setSearchValue,
             onSearch,
             isSearch,
-            setIsSearch
+            setIsSearch,
 
 
          } }>

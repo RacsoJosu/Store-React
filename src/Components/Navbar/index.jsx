@@ -25,18 +25,18 @@ const Navbar = ()=>{
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/electronics' className={({ isActive }) => isActive ? activeStyle:undefined}>
+                    <NavLink to='/electronic' className={({ isActive }) => isActive ? activeStyle:undefined}>
                         Electronics
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/fornitures' className={({ isActive }) => isActive ? activeStyle:undefined}>
-                        Fornitures
+                    <NavLink to='/shoes' className={({ isActive }) => isActive ? activeStyle:undefined}>
+                        Shoes
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/toys' className={({ isActive }) => isActive ? activeStyle:undefined}>
-                        Toys
+                    <NavLink to='/Miscellaneous' className={({ isActive }) => isActive ? activeStyle:undefined}>
+                        Miscellaneous
                     </NavLink>
                 </li>
                 <li>

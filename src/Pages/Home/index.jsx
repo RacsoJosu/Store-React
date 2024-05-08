@@ -8,6 +8,7 @@ import Search from "../../Components/Search";
 
 function Home() {
   const context = useContext(ShoppingCartContext);
+
   const items = ()=>{
     if(context.isSearch && context.searchValue != "" ){
       return context.searchItems
@@ -24,6 +25,8 @@ function Home() {
       context.setSearchItems([])
       context.setIsSearch(false);
     }
+
+   
   }, [context, context.searchValue]);
  
 
