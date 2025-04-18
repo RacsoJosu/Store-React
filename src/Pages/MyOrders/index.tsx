@@ -1,8 +1,7 @@
-import { useContext } from 'react'
-import Layout from '../../Components/Layout'
-import { ShoppingCartContext } from '../../Context'
-import OrdersCard from '../../Components/OrdersCard'
-import React from 'react'
+import { Fragment, useContext } from 'react'
+
+import { ShoppingCartContext } from '@context/index'
+import OrdersCard from '@/Orders/components/OrdersCard'
 
 function MyOrders() {
   const context = useContext(ShoppingCartContext)
@@ -10,7 +9,7 @@ function MyOrders() {
   const orders = context?.order
 
   return (
-    <Layout>
+    <Fragment>
       <div className="flex items-center px-[2rem] flex-col gap-3   ">
         <div className="flex items-center justify-center   w-80 ">
           <h1>MyOrders</h1>
@@ -31,7 +30,7 @@ function MyOrders() {
           ))}
         </div>
       </div>
-    </Layout>
+    </Fragment>
   )
 }
 

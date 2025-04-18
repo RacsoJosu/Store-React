@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, PropsWithChildren } from 'react'
+import { createContext, useState, useEffect } from 'react'
 import { Order, Product } from '../types'
 
 interface IContextShoppingCart {
@@ -45,14 +45,14 @@ export const ShoppingCartContext = createContext<IContextShoppingCart | null>(
 export const ShoppingCartProvider = ({
   children,
 }: {
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
 }) => {
   // shopping cart - incremento de los productos
   const [count, setCount] = useState(0)
   // shopping cart - abrir y cerrar el detalle de los productos
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
-  const openProductDetail = () => setIsProductDetailOpen(true)
-  const closeProductDetail = () => setIsProductDetailOpen(false)
+  const openProductDetail = () => setIsProductDetailOpen(value => !value)
+  const closeProductDetail = () => setIsProductDetailOpen(value => !value)
 
   // checkout side menu - abrir y cerrar
   const [isCheckoutSideMenuOpen, setIsCheckouSideMenuOpen] = useState(false)

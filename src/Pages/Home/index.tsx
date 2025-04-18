@@ -1,11 +1,8 @@
-import Layout from '../../Components/Layout'
-import Card from '../../Components/Card'
-
-import ProductDetails from '../../Components/ProductDetails'
-import { useContext, useEffect } from 'react'
-import { ShoppingCartContext } from '../../Context'
-import Search from '../../Components/Search'
-import React from 'react'
+import Card from '@/Core/components/Card'
+import ProductDetails from '@/Products/components/ProductDetails'
+import { Fragment, useContext, useEffect } from 'react'
+import { ShoppingCartContext } from '@context/index'
+import Search from '@/Products/components/Search'
 
 function Home() {
   const context = useContext(ShoppingCartContext)
@@ -27,15 +24,15 @@ function Home() {
   }, [context?.searchValue])
 
   return (
-    <Layout>
-      <div className="my-10">
-        <h1 className="text-center font-bold text-2xl mb-4">
+    <Fragment>
+      <div className=" w-full flex justify-center flex-col gap-4 items-center">
+        <h1 className="text-center font-bold mt-6 text-2xl">
           Exclusive Products
         </h1>
         <Search />
       </div>
       {items && items?.length > 0 ? (
-        <section className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-10">
+        <section className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-10">
           {items?.map(item => {
             return (
               // eslint-disable-next-line react/jsx-key
@@ -60,7 +57,7 @@ function Home() {
       )}
 
       <ProductDetails />
-    </Layout>
+    </Fragment>
   )
 }
 

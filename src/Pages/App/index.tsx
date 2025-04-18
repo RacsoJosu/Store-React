@@ -1,41 +1,39 @@
-import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from '../Home'
 import MyAccount from '../MyAccount'
 import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import Signin from '../Signin'
-import Navbar from '../../Components/Navbar'
+// import Navbar from '@/Core/components/Navbar'
 import '../../App.css'
-import CheckoutSideMenu from '../../Components/CheckoutSideMenu'
-import { ShoppingCartProvider } from '../../Context'
+import { ShoppingCartProvider } from '@context/index'
 import Category from '../Category'
-import React from 'react'
-const AppRoutes = () => {
-  let routes = useRoutes([
-    { path: '/', element: <Home /> },
-    { path: '/:category', element: <Category /> },
-    { path: '/my-account', element: <MyAccount /> },
-    { path: '/my-order', element: <MyOrder /> },
-    { path: '/my-orders/last', element: <MyOrder /> },
-    { path: '/my-orders/:id', element: <MyOrder /> },
-    { path: '/my-orders', element: <MyOrders /> },
-    { path: '/sign-in', element: <Signin /> },
-    { path: '/*', element: <NotFound /> },
-  ])
+import Layout from '@/Core/components/Layout'
 
-  return routes
-}
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: '/:category', element: <Category /> },
+      { path: '/my-account', element: <MyAccount /> },
+      { path: '/my-order', element: <MyOrder /> },
+      { path: '/my-orders/last', element: <MyOrder /> },
+      { path: '/my-orders/:id', element: <MyOrder /> },
+      { path: '/my-orders', element: <MyOrders /> },
+      { path: '/sign-in', element: <Signin /> },
+    ],
+  },
+  { path: '/*', element: <NotFound /> },
+])
 
 function App() {
   return (
     <>
       <ShoppingCartProvider>
-        <BrowserRouter>
-          <AppRoutes />
-          <Navbar />
-          <CheckoutSideMenu />
-        </BrowserRouter>
+        <RouterProvider router={router} />
       </ShoppingCartProvider>
     </>
   )

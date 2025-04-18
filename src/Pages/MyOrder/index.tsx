@@ -1,10 +1,10 @@
-import { useContext } from 'react'
-import { ShoppingCartContext } from '../../Context'
-import OrderCard from '../../Components/OrderCard'
-import Layout from '../../Components/Layout'
+import { Fragment, useContext } from 'react'
+import { ShoppingCartContext } from '@context/index'
+import OrderCard from '@/Orders/components/OrderCard'
+
 import { Link, useParams } from 'react-router-dom'
 import { ChevronLeftIcon } from '@heroicons/react/24/solid'
-import React from 'react'
+
 function MyOrder() {
   const context = useContext(ShoppingCartContext)
   const data = context?.order
@@ -24,7 +24,7 @@ function MyOrder() {
     : data?.slice(-1)[0]
 
   return (
-    <Layout>
+    <Fragment>
       <div className="flex items-center px-[2rem] py-[1rem] flex-col gap-3  shadow-lg rounded-lg border-slate-200 border-[2px]">
         <div className="flex content-left justify-between px-[1.3rem]  w-full ">
           <Link to="/my-orders">
@@ -47,7 +47,7 @@ function MyOrder() {
           })}
         </div>
       </div>
-    </Layout>
+    </Fragment>
   )
 }
 

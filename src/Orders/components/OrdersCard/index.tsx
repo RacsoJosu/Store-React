@@ -3,7 +3,7 @@ import {
   ChevronRightIcon,
   ShoppingBagIcon,
 } from '@heroicons/react/24/solid'
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 
 // eslint-disable-next-line react/prop-types

@@ -1,10 +1,9 @@
-import React from 'react'
-import Layout from '../../Components/Layout'
+import { Fragment } from 'react/jsx-runtime'
 function Signin() {
   return (
-    <Layout>
+    <Fragment>
       <h1>Signin</h1>
-    </Layout>
+    </Fragment>
   )
 }
 

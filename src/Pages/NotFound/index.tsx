@@ -1,10 +1,9 @@
-import React from 'react'
-import Layout from '../../Components/Layout'
+import { Fragment } from 'react/jsx-runtime'
 function NotFound() {
   return (
-    <Layout>
+    <Fragment>
       <h1>NotFound</h1>
-    </Layout>
+    </Fragment>
   )
 }
 

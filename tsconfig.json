@@ -1,18 +1,21 @@
 {
   "files": [],
   "compilerOptions": {
+     "plugins": [{ "name": "typescript-plugin-css-modules" }],
 
     "esModuleInterop": true,
 
-    // "baseUrl": "./",
-    // "paths": {
-    //   "@/*":["src/*"],
-    //   "@features/*": ["src/featurers/*"],
-    //   "@routes/*": ["src/routes/*"],
-    //   "@utils/*": ["src/utils/*"],
-    //   "@assets/*": ["src/assets/*"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*":["src/*"],
+      "@pages/*": ["src/Pages/*"],
+      // "@routes/*": ["src/routes/*"],
+      "@utils/*": ["src/utils/*"],
 
-    // }
+      "@context/*": ["src/Context/*"],
+
+
+    }
   },
   "references": [
     { "path": "./tsconfig.app.json" },

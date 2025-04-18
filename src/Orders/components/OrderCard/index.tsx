@@ -1,5 +1,4 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
-import React from 'react'
 
 // eslint-disable-next-line react/prop-types
 function OrderCard({ id, title, imageUrl, price, onDelete }) {

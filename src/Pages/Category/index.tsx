@@ -1,11 +1,9 @@
-import Layout from '../../Components/Layout'
-import Card from '../../Components/Card'
+import Card from '@/Core/components/Card'
 
-import ProductDetails from '../../Components/ProductDetails'
-import { useContext } from 'react'
+import ProductDetails from '@/Products/components/ProductDetails'
+import { Fragment, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { ShoppingCartContext } from '../../Context'
-import React from 'react'
+import { ShoppingCartContext } from '@context/index'
 
 function Category() {
   const context = useContext(ShoppingCartContext)
@@ -17,7 +15,7 @@ function Category() {
   )
 
   return (
-    <Layout>
+    <Fragment>
       <div className="my-10">
         <h1 className="text-center font-bold text-2xl mb-4">
           {params.category} products
@@ -47,7 +45,7 @@ function Category() {
       )}
 
       <ProductDetails />
-    </Layout>
+    </Fragment>
   )
 }
 

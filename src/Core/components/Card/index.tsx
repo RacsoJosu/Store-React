@@ -1,16 +1,31 @@
 import { PlusCircleIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
-import { useContext } from 'react'
-import { ShoppingCartContext } from '../../Context'
-import React from 'react'
+import { SyntheticEvent, useContext } from 'react'
+import { ShoppingCartContext } from '@context/index'
+import { Product } from '@/types'
+
+type CardPropsType = Omit<Product, 'images'> & {
+  img: string
+  categoryName?: string
+}
 
 // eslint-disable-next-line react/prop-types
-const Card = ({ title, id, category, price, img, description }) => {
+const Card = ({
+  title,
+  id,
+  category,
+  price,
+  img,
+  description,
+}: CardPropsType) => {
   // lectura del estado global
 
   const context = useContext(ShoppingCartContext)
   const categoryName = category.name
   // eslint-disable-next-line no-unused-vars
-  const showProduct = (event, productDetail) => {
+  const showProduct = (
+    event: SyntheticEvent<HTMLDivElement, Event>,
+    productDetail: Omit<CardPropsType, 'category'>
+  ) => {
     // productInf,
     // setProductInf
     event.stopPropagation()
@@ -21,7 +36,10 @@ const Card = ({ title, id, category, price, img, description }) => {
 
   // funcion para retener la informacion de los productos
 
-  const addProductsToCart = (event, dataProduct) => {
+  const addProductsToCart = (
+    event: React.SyntheticEvent<HTMLDivElement, Event>,
+    dataProduct: CardPropsType
+  ) => {
     event.stopPropagation()
     context?.openCheckouSideMenu()
     context?.closeProductDetail()
@@ -53,6 +71,7 @@ const Card = ({ title, id, category, price, img, description }) => {
               img,
               categoryName,
               description,
+              category,
             })
           }
         >
@@ -71,6 +90,7 @@ const Card = ({ title, id, category, price, img, description }) => {
               img,
               categoryName,
               description,
+              category,
             })
           }
         >
@@ -102,6 +122,10 @@ const Card = ({ title, id, category, price, img, description }) => {
           className="w-full rounded-lg h-full object-cover"
           src={img}
           alt={title}
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null
+            currentTarget.src = 'image_path_here'
+          }}
         />
 
         {renderIcon()}
