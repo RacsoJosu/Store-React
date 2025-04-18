@@ -124,7 +124,7 @@ const Card = ({
           alt={title}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null
-            currentTarget.src = 'image_path_here'
+            currentTarget.src = '/no_img.png'
           }}
         />
         {renderIcon()}
