@@ -41,7 +41,6 @@ const Card = ({
     dataProduct: CardPropsType
   ) => {
     event.stopPropagation()
-    context?.openCheckouSideMenu()
     context?.closeProductDetail()
 
     const product = context?.cartProducts.filter(
@@ -55,6 +54,7 @@ const Card = ({
       ])
       context?.setCount(context.count + 1)
     }
+    context?.openCheckouSideMenu()
   }
 
   const renderIcon = () => {
@@ -127,7 +127,6 @@ const Card = ({
             currentTarget.src = 'image_path_here'
           }}
         />
-
         {renderIcon()}
       </figure>
       <p className="flex justify-between">

@@ -51,8 +51,8 @@ export const ShoppingCartProvider = ({
   const [count, setCount] = useState(0)
   // shopping cart - abrir y cerrar el detalle de los productos
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
-  const openProductDetail = () => setIsProductDetailOpen(value => !value)
-  const closeProductDetail = () => setIsProductDetailOpen(value => !value)
+  const openProductDetail = () => setIsProductDetailOpen(true)
+  const closeProductDetail = () => setIsProductDetailOpen(false)
 
   // checkout side menu - abrir y cerrar
   const [isCheckoutSideMenuOpen, setIsCheckouSideMenuOpen] = useState(false)
