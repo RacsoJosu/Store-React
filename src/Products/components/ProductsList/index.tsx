@@ -1,26 +1,26 @@
-import Card from '@/Core/components/Card'
+import Card from '@/core/components/Card'
+import ProductDetails from '@/products/components/ProductDetails'
+import { Fragment } from 'react'
+import { useOutletContext, useParams } from 'react-router-dom'
+import { Product } from '@/types'
 
-import ProductDetails from '@/Products/components/ProductDetails'
-import { Fragment, useContext } from 'react'
-import { useParams } from 'react-router-dom'
-import { ShoppingCartContext } from '@context/index'
-
-function Category() {
-  const context = useContext(ShoppingCartContext)
+interface IContextRoute {
+  items: Product[]
+}
+function ListProducts() {
+  let { items } = useOutletContext<IContextRoute>()
   const params = useParams()
-  const items = context?.items.filter(item =>
-    item.category.name
-      .toLowerCase()
-      .includes(params?.category?.toLocaleLowerCase() || '')
-  )
+  console.log({ params, items })
+  if (params?.category) {
+    items = items.filter(item =>
+      item.category.name
+        .toLowerCase()
+        .includes(params?.category?.toLocaleLowerCase() || '')
+    )
+  }
 
   return (
     <Fragment>
-      <div className="my-10">
-        <h1 className="text-center font-bold text-2xl mb-4">
-          {params.category} products
-        </h1>
-      </div>
       {items && items?.length > 0 ? (
         <section className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-10">
           {items?.map(item => (
@@ -49,4 +49,4 @@ function Category() {
   )
 }
 
-export default Category
+export default ListProducts

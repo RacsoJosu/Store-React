@@ -1,6 +1,6 @@
 import { PlusCircleIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 import { SyntheticEvent, useContext } from 'react'
-import { ShoppingCartContext } from '@context/index'
+import { ShoppingCartContext } from '@/core/context/index'
 import { Product } from '@/types'
 
 type CardPropsType = Omit<Product, 'images'> & {

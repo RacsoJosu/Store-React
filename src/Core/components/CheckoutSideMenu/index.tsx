@@ -1,8 +1,8 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { ShoppingCartContext } from '@context/index'
-import OrderCard from '@/Orders/components/OrderCard'
+import { ShoppingCartContext } from '@/core/context/index'
+import OrderCard from '@/orders/components/OrderCard'
 import './styles.css'
 import { sumPrecios } from '@/utils/sumPrices'
 import { getDate } from '@/utils/getDateHours'
@@ -61,7 +61,7 @@ const CheckoutSideMenu = () => {
           </div>
         </section>
 
-        <section className="h-full w-full  ">
+        <section className="h-auto w-full  ">
           <div className=" w-full flex items-center justify-center my-[1rem] px-[2rem]  ">
             <Link to={'/my-orders/last'}>
               <button
@@ -76,21 +76,22 @@ const CheckoutSideMenu = () => {
             <p className="text-lg font-light ">Total: </p>
             <span className="text-xl font-bold ">${sumPrecios(data)}</span>
           </div>
-          <div className="overflow-y-scroll h-full w-full px-[1.5rem]">
-            {data?.map(product => {
-              return (
-                <OrderCard
-                  key={product?.id}
-                  id={product?.id}
-                  title={product?.title}
-                  price={product?.price}
-                  imageUrl={product?.images[0]}
-                  onDelete={onDelete}
-                />
-              )
-            })}
-          </div>
         </section>
+
+        <div className="overflow-y-scroll h-full w-full px-[1.5rem]">
+          {data?.map(product => {
+            return (
+              <OrderCard
+                key={product?.id}
+                id={product?.id}
+                title={product?.title}
+                price={product?.price}
+                imageUrl={product?.images[0]}
+                onDelete={onDelete}
+              />
+            )
+          })}
+        </div>
       </aside>
     </div>,
     document.getElementById('modal')!

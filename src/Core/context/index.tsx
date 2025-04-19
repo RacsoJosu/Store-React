@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
-import { Order, Product } from '../types'
+import { Order, Product } from '../../types'
 
 interface IContextShoppingCart {
   count: number
@@ -76,7 +76,7 @@ export const ShoppingCartProvider = ({
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch('https://api.escuelajs.co/api/v1/products')
+      const response = await fetch(import.meta.env.VITE_API_URL)
       const data = await response.json()
 
       if (data) {

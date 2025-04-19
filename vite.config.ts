@@ -14,15 +14,19 @@ export default defineConfig({
       },
       {
         find: '@pages',
-        replacement: path.resolve(path.join(__dirname, '/src/Pages')),
+        replacement: path.resolve(path.join(__dirname, '/src/pages')),
+      },
+      {
+        find: '@routes',
+        replacement: path.resolve(path.join(__dirname, '/src/routes')),
       },
       {
         find: '@utils',
         replacement: path.resolve(path.join(__dirname, '/src/utils')),
       },
       {
-        find: '@context',
-        replacement: path.resolve(path.join(__dirname, '/src/Context')),
+        find: '@core',
+        replacement: path.resolve(path.join(__dirname, '/src/core')),
       },
     ],
   },
