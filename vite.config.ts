@@ -14,7 +14,7 @@ export default defineConfig({
       },
       {
         find: '@pages',
-        replacement: path.resolve(path.join(__dirname, '/src/pages')),
+        replacement: path.resolve(path.join(__dirname, '/src/Pages')),
       },
       {
         find: '@routes',
@@ -26,7 +26,7 @@ export default defineConfig({
       },
       {
         find: '@core',
-        replacement: path.resolve(path.join(__dirname, '/src/core')),
+        replacement: path.resolve(path.join(__dirname, '/src/Core')),
       },
     ],
   },
