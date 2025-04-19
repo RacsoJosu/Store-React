@@ -78,9 +78,11 @@ export const ShoppingCartProvider = ({
     const getData = async () => {
       const response = await fetch(import.meta.env.VITE_API_URL)
       const data = await response.json()
-
+      const items = data.filter(
+        (value: Product) => !value.title.toLowerCase().includes('new')
+      )
       if (data) {
-        setItems(data)
+        setItems(items)
       }
 
       return data

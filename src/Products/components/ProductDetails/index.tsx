@@ -19,7 +19,7 @@ const ProductDetails = () => {
       className={`absolute top-0 w-full h-full ${contextShoppingProduct?.isProductDetailOpen ? 'bg-white/50 flex' : 'hidden'} overflow-hidden  flex-row-reverse `}
     >
       <aside
-        className={` ${contextShoppingProduct?.isProductDetailOpen ? 'flex' : 'hidden'} overflow-y-scroll flex flex-col border-solid border-2 max-w-auto w-[300px] h-full  border-transparent shadow-2xl rounded-lg bg-white`}
+        className={` ${contextShoppingProduct?.isProductDetailOpen ? 'flex' : 'hidden'} overflow-y-scroll flex flex-col border-solid border-2 min-w-[300px] w-[300px] h-full  border-transparent shadow-2xl rounded-lg bg-white`}
       >
         <section className="flex justify-between items-center p-6 ">
           <h2 className="  font-medium text-xl">Detail</h2>
@@ -38,11 +38,13 @@ const ProductDetails = () => {
           />
         </figure>
 
-        <p className="m-4 w-auto flex flex-col ">
+        <div className="m-4  text-wrap w-[240px]    flex flex-col ">
           <span className=" font-bold text-2xl ">${product?.price}</span>
-          <span className=" font-bold mt-2">{product?.title}</span>
+          <span className=" font-bold mt-2  break-words whitespace-normal">
+            {product?.title}
+          </span>
           <span className=" font-light">{product?.description}</span>
-        </p>
+        </div>
       </aside>
     </div>,
     document.getElementById('modal')!
