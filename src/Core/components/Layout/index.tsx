@@ -2,7 +2,7 @@ import Navbar from '../Navbar'
 import { Outlet } from 'react-router-dom'
 import CheckoutSideMenu from '../CheckoutSideMenu'
 import { useContext } from 'react'
-import { ShoppingCartContext } from '@/core/context'
+import { ShoppingCartContext } from '@/Core/context'
 
 // eslint-disable-next-line react/prop-types
 const Layout = () => {

@@ -1,7 +1,7 @@
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 import { HTMLProps, PropsWithChildren, useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { ShoppingCartContext } from '@/core/context/index'
+import { ShoppingCartContext } from '@/Core/context/index'
 import { createContext } from 'react'
 
 const Navbar = () => {

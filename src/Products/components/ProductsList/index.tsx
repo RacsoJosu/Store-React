@@ -1,5 +1,5 @@
-import Card from '@/core/components/Card'
-import ProductDetails from '@/products/components/ProductDetails'
+import Card from '@/Core/components/Card'
+import ProductDetails from '@/Products/components/ProductDetails'
 import { Fragment } from 'react'
 import { useOutletContext, useParams } from 'react-router-dom'
 import { Product } from '@/types'

@@ -3,18 +3,17 @@
   "compilerOptions": {
     "types": ["vite/client"],
 
-     "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
 
     "esModuleInterop": true,
 
     "baseUrl": "./",
     "paths": {
-       "@/*":["src/*"],
-      "@pages/*": ["src/pages/*"],
+      "@/*": ["src/*"],
+      "@pages/*": ["src/Pages/*"],
       "@routes/*": ["src/routes/*"],
       "@utils/*": ["src/utils/*"],
-      "@core/*": ["src/core/*"],
-
+      "@core/*": ["src/Core/*"]
     }
   },
   "references": [

@@ -1,6 +1,6 @@
 import { Fragment, useContext } from 'react'
-import { ShoppingCartContext } from '@/core/context/index'
-import OrderCard from '@/orders/components/OrderCard'
+import { ShoppingCartContext } from '@/Core/context/index'
+import OrderCard from '@/Orders/components/OrderCard'
 
 import { Link, useParams } from 'react-router-dom'
 import { ChevronLeftIcon } from '@heroicons/react/24/solid'

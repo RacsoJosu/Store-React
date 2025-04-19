@@ -1,7 +1,7 @@
 import { Fragment, useContext } from 'react'
 
-import { ShoppingCartContext } from '@/core/context/index'
-import OrdersCard from '@/orders/components/OrdersCard'
+import { ShoppingCartContext } from '@/Core/context/index'
+import OrdersCard from '@/Orders/components/OrdersCard'
 
 function MyOrders() {
   const context = useContext(ShoppingCartContext)

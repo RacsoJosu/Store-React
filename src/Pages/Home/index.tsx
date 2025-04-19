@@ -1,7 +1,7 @@
-import ProductDetails from '@/products/components/ProductDetails'
+import ProductDetails from '@/Products/components/ProductDetails'
 import { Fragment, useContext, useEffect } from 'react'
-import { ShoppingCartContext } from '@/core/context/index'
-import Search from '@/products/components/Search'
+import { ShoppingCartContext } from '@/Core/context/index'
+import Search from '@/Products/components/Search'
 import { Outlet, useParams } from 'react-router-dom'
 
 function Home() {

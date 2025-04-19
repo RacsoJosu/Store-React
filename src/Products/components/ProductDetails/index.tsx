@@ -1,6 +1,6 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { useContext } from 'react'
-import { ShoppingCartContext } from '@/core/context/index'
+import { ShoppingCartContext } from '@/Core/context/index'
 
 import './styles.css'
 import { createPortal } from 'react-dom'

@@ -1,6 +1,6 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { useContext } from 'react'
-import { ShoppingCartContext } from '@/core/context/index'
+import { ShoppingCartContext } from '@/Core/context/index'
 
 function Search() {
   const context = useContext(ShoppingCartContext)
