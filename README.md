@@ -69,7 +69,7 @@ src/
 ├── routes/           # Configuración de rutas con React Router
 ├── Orders/           # feature de la aplicacion
 ├── Products/         # feature de la aplicacion
-└── main.tsx          # Entrada principal         # Entrada de la app
+└── main.tsx          # Entrada principal  
 ```
 
 # 5. ✨ Funcionalidades
