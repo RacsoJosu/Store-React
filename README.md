@@ -1,6 +1,6 @@
 # 🛒 Store React
 
-Una tienda online construida con **React**, **Vite**, y **TailwindCSS**. Implementa enrutamiento moderno con **React Router v6.30**, está optimizada para rendimiento con **SWC**, y utiliza **pnpm** como gestor de dependencias.
+Una tienda online construida con **React**, **Vite**, y **TailwindCSS**. consume el api publica de **Platzi** **Fake Store**
 
 ---
 
